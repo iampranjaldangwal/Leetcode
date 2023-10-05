@@ -39,20 +39,11 @@ struct ListNode* mergeTwoLists(struct ListNode* list1, struct ListNode* list2){
             }
          }
       
-        if(list1!=NULL){
-        while(list1!=NULL){
+        if(list1!=NULL)
            tail->next=list1;
-           tail=list1;
-           list1=list1->next;
-           }
-       }
 
-           if(list2!=NULL){
-           while(list2!=NULL){
-           tail->next=list2;
-           tail=list2;
-           list2=list2->next;
-           }
-        }   
+           if(list2!=NULL)
+           tail->next=list2; 
+       
         return head;
 }
