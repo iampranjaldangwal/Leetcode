@@ -6,29 +6,27 @@
  * };
  */
 struct ListNode* swapNodes(struct ListNode* head, int k){
-      struct ListNode* temp=head;
-       int len=0;
-      while(temp!=NULL){
-          temp=temp->next;
-          len++;
-      }
-      temp=head;
-      int arr[len];
-      int i=0;
-      while(temp!=NULL){
-          arr[i]=temp->val;
-          temp=temp->next;
-          i++;
-      }
-      i=0;
-          int protemp=arr[k-1];
-          arr[k-1]=arr[len-k];
-          arr[len-k]=protemp;
-    temp=head;
+    struct ListNode* temp=head;
+    struct ListNode* kNode=NULL;
+    struct ListNode* swapNode=NULL;
+    int len=0;
     while(temp!=NULL){
-         temp->val=arr[i];
-         temp=temp->next;
-         i++;
-    }
-    return head;
+        len++;
+        if(len==k)
+        kNode=temp;
+    temp=temp->next;
+   }
+ temp=head;
+    int i=0;
+    while(i<len-k){
+    temp=temp->next;
+    i++;
+   }
+ swapNode=temp;
+
+   int tempVal=kNode->val;
+   kNode->val=swapNode->val;
+   swapNode->val=tempVal;
+
+   return head;
 }
