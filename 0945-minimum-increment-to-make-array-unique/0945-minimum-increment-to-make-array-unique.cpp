@@ -1,6 +1,6 @@
 class Solution {
-    private:
-    int moves(vector<int>& nums){
+public:
+    int minIncrementForUnique(vector<int>& nums){
         sort(nums.begin(),nums.end());
         int n = nums.size();
         int i=0,moves=0;
@@ -12,9 +12,5 @@ class Solution {
             }
         }
         return moves;
-    }
-public:
-    int minIncrementForUnique(vector<int>& nums){
-      return moves(nums);
     }
 };
