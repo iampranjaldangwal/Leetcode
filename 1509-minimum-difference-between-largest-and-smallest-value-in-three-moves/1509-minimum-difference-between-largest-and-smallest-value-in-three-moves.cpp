@@ -6,11 +6,8 @@ public:
         sort(nums.begin(),nums.end());
 
         int minDiff = INT_MAX;
-        
-        minDiff = min(minDiff,nums[n-4] - nums[0]);
-        minDiff = min(minDiff,nums[n-3] - nums[1]);
-        minDiff = min(minDiff,nums[n-2] - nums[2]);
-        minDiff = min(minDiff,nums[n-1] - nums[3]);
+        for(int left=0,right=n-4;left<4;left++,right++)
+         minDiff = min(minDiff,nums[right] - nums[left]);
 
     return minDiff;
     }
