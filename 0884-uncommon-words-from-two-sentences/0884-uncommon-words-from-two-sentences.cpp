@@ -1,28 +1,20 @@
 class Solution {
 public:
     vector<string> uncommonFromSentences(string s1, string s2) {
-        vector<string> words;
-        stringstream ss1(s1);
-        string word1;
-        while(ss1 >> word1)
-        words.push_back(word1);
-        
-        stringstream ss2(s2);
-        string word2;
-        while(ss2 >> word2)
-        words.push_back(word2);
-        
-        vector<string> output;
-        unordered_map<string,int> mp;
-        int n = words.size();
+        unordered_map<string,int> wordCount;
+        vector<string> uncommonWords;
 
-        for(int i=0;i<n;i++)
-         mp[words[i]]++;
-        
-        for(int i=0;i<n;i++){
-         if(mp[words[i]] == 1)
-          output.push_back(words[i]);
+        string combined = s1 + " " + s2;
+        stringstream ss(combined);
+        string word;
+
+        while(ss >> word)
+         wordCount[word]++;
+
+        for(const auto& entry : wordCount ){
+            if(entry.second == 1)
+              uncommonWords.push_back(entry.first);
         }
-    return output;
+        return uncommonWords;
     }
 };
