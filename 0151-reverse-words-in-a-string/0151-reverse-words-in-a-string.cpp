@@ -10,9 +10,14 @@ public:
 
         reverse(vec.begin(),vec.end());
         
-        string result = accumulate(vec.begin()+1,vec.end(),vec[0],
-        [](string a,string b) {return a + " " + b;});
+        string result ;
 
+        for(const string& s : vec){
+            if(!result.empty())
+             result += " " + s;
+            else
+             result += s;
+        }
         return result;
     }
 };
